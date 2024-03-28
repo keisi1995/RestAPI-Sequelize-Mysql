@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize')
-const bcrypt = require('bcryptjs')
+const { Model, DataTypes } = require('sequelize');
+const bcrypt = require('bcrypt');
 
 class User extends Model {
     static initialize(sequelize) {
@@ -49,7 +49,11 @@ class User extends Model {
     }    
     
     async comparePassword(password) {
-        return await bcrypt.compare(password, this.password);
+        try {
+            return await bcrypt.compare(password, this.password);
+        } catch (error) {
+            throw new Error(error);
+        }
     }
 }
 

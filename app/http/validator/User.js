@@ -1,4 +1,4 @@
-const { body } = require('express-validator')
+const { body } = require('express-validator');
 
 exports.validateStore = [
     body('first_name')

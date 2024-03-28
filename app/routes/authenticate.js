@@ -1,7 +1,7 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-const { validateLogin } = require("../Http/Validator/User");
-const Auth = require("../Http/Controller/AuthenticateController");
+const { validateLogin } = require('../http/validator/user');
+const Auth = require('../http/controller/authenticateController');
 
 router.route('/')
     .post(validateLogin, (req, res) => { 

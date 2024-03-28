@@ -1,5 +1,4 @@
-require('dotenv').config();
-const router = require("express").Router();
+const router = require('express').Router();
  
 const user = require('./user.js');
 const authenticate = require('./authenticate.js');

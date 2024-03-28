@@ -1,26 +1,16 @@
-const router = require("express").Router();
+const router = require('express').Router();
 
-const { validateStore } = require("../Http/Validator/User");
-const authMiddleware = require('../Http/Middleware/authMiddleware');
-const User = require("../Http/Controller/UserController");
+const { validateStore } = require('../http/validator/user');
+const authMiddleware = require('../http/middleware/authMiddleware');
+const User = require('../http/controller/userController');
 
 router.route('/')
-    .get(authMiddleware, (req, res) => { 
-        User.index(req, res);
-    })
-    .post(validateStore, (req, res) => {
-        User.store(req, res);
-    })
+    .get(authMiddleware, User.index)
+    .post(validateStore, User.store)
 
 router.route('/:id_user(\\d+)')
-    .get(authMiddleware, (req, res) => {
-        User.show(req, res);
-    })
-    .put(validateStore, authMiddleware, (req, res) => {
-        User.update(req, res);
-    })
-    .delete(authMiddleware, (req, res) => {
-        User.destroy(req, res); 
-    })
+    .get(authMiddleware, User.show)
+    .put(validateStore, authMiddleware, User.update)
+    .delete(authMiddleware, User.destroy)
 
 module.exports = router;

@@ -1,6 +1,7 @@
-const { User } = require("../../model/");
-const { error, success } = require('../helpers/httpResponse');
 const { validationResult } = require('express-validator');
+
+const { User } = require('../../model/');
+const { error, success } = require('../helpers/httpResponse');
 const { validationErrors } = require('../helpers/myHelper');
  
 class UsuarioController {

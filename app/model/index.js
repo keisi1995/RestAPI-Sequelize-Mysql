@@ -21,7 +21,7 @@ let models = [ User ];
 models.forEach(model => model.initialize(sequelize))
 
 // synchronizes tables to the database
-// force => true (If the table already exists, delete it and then recreate it.)
+// force => true (if the table already exists, delete it and then recreate it.)
 sequelize.sync({ force: false }).then(() => {
     console.log('Database synchronized successfully');
 }).catch(err => {
